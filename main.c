@@ -8,6 +8,7 @@ void comprimir(char* arquivo){
 	char temp[200];
 	char salvar[5];
 	char comparar;
+
 	
 	FILE* arq = fopen(arquivo,"r");
 	FILE* comprimido = fopen("comprimido.txt","w");
@@ -39,13 +40,22 @@ void comprimir(char* arquivo){
 }
 
 int main( int argc, char *argv[ ]){
-	if(argc != 2){
+	int	modo = 0;
+	if(argc != 3){
 		printf("Argumentos invalidos!");
 		exit(1);
 	}
 	
-	printf("Comprimindo Arquivo: %s\n",argv[1]);
-	comprimir(argv[1]);
 	
+	if(strcmp(argv[2],"c") == 0){
+		printf("Comprimindo Arquivo: %s\n",argv[1]);
+		comprimir(argv[1]);
+	}else if(strcmp(argv[2],"d") == 0){
+		printf("Descomprimindo Arquivo: %s\n",argv[1]);
+		//descomprimir(argv[1]);
+	} else {
+		printf("Segundo argumento deve ser [c] ou [d]");
+		exit(1);
+	}	
 }
 
