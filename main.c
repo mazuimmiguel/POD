@@ -75,8 +75,7 @@ int main( int argc, char *argv[ ]){
 		exit(1);
 	}
 	char* endptr;
-	strtoimax(" -123junk",&endptr,10);
-	 printf("%ld\n", strtoimax("junk",&endptr,10));
+	
 	if(strcmp(argv[2],"c") == 0){
 		printf("Comprimindo Arquivo: %s\n",argv[1]);
 		comprimir(argv[1]);
